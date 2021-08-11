@@ -9,6 +9,7 @@ function Header() {
       <NavLink to="/dashboard">Dashboard</NavLink>
       <NavLink to="/profile">Profile</NavLink>
       <NavLink to="/about">About</NavLink>
+      <NavLink to="/login">Login</NavLink>
     </header>
   );
 }
