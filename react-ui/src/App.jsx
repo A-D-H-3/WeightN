@@ -6,9 +6,9 @@ import Main from "./sectioning/main/main";
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Main />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
