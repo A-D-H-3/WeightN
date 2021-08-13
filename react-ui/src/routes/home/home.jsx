@@ -1,3 +1,5 @@
+import Login from "../../components/login";
+
 function Home() {
   return (
     <div>
@@ -12,18 +14,7 @@ function Home() {
         </p>
         <fieldset className="signup-field">
           <legend> Sign-Up</legend>
-          <div>
-            <label for="first">First Name:</label>
-            <input type="text" id="first" name="firstname" />
-          </div>
-          <div>
-            <label for="last">Last Name:</label>
-            <input type="text" id="last" name="lastname" />
-          </div>
-          <div>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" />
-          </div>
+          <Login />
         </fieldset>
       </div>
     </div>
