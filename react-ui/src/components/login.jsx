@@ -47,9 +47,6 @@ function SignIn() {
       <button className="sign-in" onClick={signInWithGithub}>
         Sign in with Github
       </button>
-      <p>
-        Do not violate the community guidelines or you will be banned for life!
-      </p>
     </>
   );
 }

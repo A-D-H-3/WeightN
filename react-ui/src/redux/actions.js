@@ -1,14 +1,24 @@
-import { GET_USERNAME } from './actionTypes';
+import { GET_USERNAME, UPDATE_LOG } from "./actionTypes";
 
-export const updateUsername = username => {
+export const updateUsername = (username) => {
   return {
-		// every action creator must return an action type
+    // every action creator must return an action type
     type: GET_USERNAME,
-		// it's common pracice to return values on a `payload` object but this is not a strict requirement
+    // it's common pracice to return values on a `payload` object but this is not a strict requirement
     payload: {
-      username
-    }
-  }
+      username,
+    },
+  };
+};
+
+export const updateLog = (logWeight, logHeight) => {
+  return {
+    type: UPDATE_LOG,
+    payload: {
+      logWeight,
+      logHeight,
+    },
+  };
 };
 
 // an action creator is somewhat of a misnomer because its purpose is to initiate or fire an action that already exists, not create a new one from scratch

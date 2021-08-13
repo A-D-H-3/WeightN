@@ -1,5 +1,6 @@
 // all action types are simply strings by the same name and follow this format
-export const GET_USERNAME = 'GET_USERNAME';
+export const GET_USERNAME = "GET_USERNAME";
+export const UPDATE_LOG = "UPDATE_LOG";
 
 // Note
 // The reason we inititialize a `const` with the exact same name as the string itself is so Visual Studio Code can see the export and keep us from misspelling the string later on
