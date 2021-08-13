@@ -1,8 +1,9 @@
-import { UPDATE_LOG } from "../actionTypes";
+import { UPDATE_LOG, RESET_FLAG } from "../actionTypes";
 
 const initialState = {
   logWeight: 0,
   logHeight: "",
+  weighNflag: null,
 };
 
 export default function (state = initialState, action) {
@@ -10,6 +11,13 @@ export default function (state = initialState, action) {
     return {
       logWeight: action.payload.logWeight,
       logHeight: action.payload.logHeight,
+      weighNflag: false,
+    };
+  }
+  if (action.type === RESET_FLAG) {
+    return {
+      ...state,
+      weighNflag: null,
     };
   }
   return state;
