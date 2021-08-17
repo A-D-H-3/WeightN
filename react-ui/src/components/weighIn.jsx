@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { updateLog } from "../redux/actions";
 import { connect } from "react-redux";
+import addToDatabase from "../services/addToDatabase";
 
 function WeighIn({ updateLog }) {
   const handleSearchSubmit = (e) => {
@@ -13,9 +14,8 @@ function WeighIn({ updateLog }) {
     console.log(e.target[0].value);
     console.log(e.target[1].value);
     //   const selected_keywords = e.target[0].value;
-
+    addToDatabase(logWeight, logHeight);
     updateLog(logWeight, logHeight);
-
     //   updateReviews(selected_keywords, selected_platforms, selected_genres);
   };
 
