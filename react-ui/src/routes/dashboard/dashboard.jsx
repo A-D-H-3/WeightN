@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Greeting from "../../components/storeTest";
 import { updateFlag } from "../../redux/actions";

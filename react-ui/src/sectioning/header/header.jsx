@@ -1,15 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import firebase from "firebase/app";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { BaseNav } from "./baseNav";
+import { AuthNav } from "./authNav";
+
+
 
 function Header() {
+  const [user] = useAuthState(firebase.auth())
+
   return (
     <header>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/challenge">Challenge</NavLink>
-      <NavLink to="/dashboard">Dashboard</NavLink>
-      <NavLink to="/profile">Profile</NavLink>
-      <NavLink to="/about">About</NavLink>
-      <NavLink to="/login">Login</NavLink>
+     {user ? <AuthNav /> : <BaseNav />}
     </header>
   );
 }

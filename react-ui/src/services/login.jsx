@@ -61,4 +61,4 @@ function SignOut() {
   );
 }
 
-export default Login;
+export {Login, SignIn, SignOut};
