@@ -20,13 +20,13 @@ function WeighIn({ updateLog }) {
   };
 
   return (
-    <div>
+    <div className="profile-form">
       <Form onSubmit={handleSearchSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="sm-3" controlId="formBasicEmail">
           <Form.Label>Weight</Form.Label>
           <Form.Control type="number" placeholder="Enter weight" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="sm-3" controlId="formBasicEmail">
           <Form.Label>Height</Form.Label>
           <Form.Control type="text" placeholder="Enter height" />
         </Form.Group>

@@ -6,7 +6,7 @@ const initialState = {
   weighNflag: null,
 };
 
-export default function (state = initialState, action) {
+export default function updateLogReducer(state = initialState, action) {
   if (action.type === UPDATE_LOG) {
     return {
       logWeight: action.payload.logWeight,

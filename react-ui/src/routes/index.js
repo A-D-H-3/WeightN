@@ -5,7 +5,7 @@ import Home from "./home/home";
 import Challenge from "./challenge/challenges";
 import Profile from "./profile/profile";
 import Dashboard from "./dashboard/dashboard";
-import Login from "../components/login";
+import { SignIn, SignOut }from "../services/login";
 
 const Routes = () => {
   const flag = useSelector((state) => state.updateLog.weighNflag);
@@ -23,7 +23,8 @@ const Routes = () => {
       </Route>
       <Route exact={true} path="/dashboard" render={() => <Dashboard />} />
       <Route exact={true} path="/about" render={() => <About />} />
-      <Route exact={true} path="/login" render={() => <Login />} />
+      <Route exact={true} path="/login" render={() => <SignIn />} />
+      <Route exact={true} path="/logout" render={() => <SignOut />} />
     </>
   );
 };
