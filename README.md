@@ -2,7 +2,7 @@
 
 # [WeightN](Deployed Link)
 
-A way to track different types of weight-loss goals/ competitions
+A way to track weight-loss competitions amougnst friends
 
 ![Let's Go!](https://media.giphy.com/media/NTT2rKQyHy6uO3baUI/giphy.gif"WeightN")
 
