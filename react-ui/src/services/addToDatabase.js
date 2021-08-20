@@ -5,9 +5,9 @@ import "firebase/firestore";
 
 let unsubscribe;
 
-export default function addToDatabase(newWeight, newHeight){
+export default function addToDatabase(newWeight, newHeightFt, newHeightIn, newBmi){
   console.log("i entered the add to database function");
-  const formRef = firebase.firestore().collection('form1');
+  const formRef = firebase.firestore().collection('form2');
   const auth = firebase.auth().currentUser;
 
   
@@ -16,8 +16,10 @@ export default function addToDatabase(newWeight, newHeight){
       const {serverTimestamp} = firebase.firestore.FieldValue;
       formRef.add({
         uid: auth.uid,
-        Height: newHeight,
-        weight: newWeight,
+        HeightFt: newHeightFt,
+        HeightIn: newHeightIn,
+        Weight: newWeight,
+        BMI: newBmi,
         createdAt: serverTimestamp()
       })
       unsubscribe = formRef
