@@ -1,3 +1,5 @@
+import { Button, Card } from 'react-bootstrap';
+
 function About() {
   return (
     <div>
