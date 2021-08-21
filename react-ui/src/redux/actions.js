@@ -11,12 +11,13 @@ export const updateUsername = (username) => {
   };
 };
 
-export const updateLog = (logWeight, logHeight) => {
+export const updateLog = (logWeight, logHeightFt, logHeightIn) => {
   return {
     type: UPDATE_LOG,
     payload: {
       logWeight,
-      logHeight,
+      logHeightFt,
+      logHeightIn,
     },
   };
 };
