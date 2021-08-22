@@ -5,7 +5,7 @@ import Home from "./home/home";
 import Challenge from "./challenge/challenges";
 import Profile from "./profile/profile";
 import Dashboard from "./dashboard/dashboard";
-import { SignIn, SignOut }from "../services/login";
+import { SignIn, SignOut } from "../services/login";
 
 const Routes = () => {
   const flag = useSelector((state) => state.updateLog.weighNflag);
