@@ -12,14 +12,16 @@ function WeighIn({ updateLog }) {
     const logHeightFt = e.target[1].value;
     const logHeightIn = e.target[2].value;
 
-    const convertedHeight = ((logHeightFt*30.48)+(logHeightIn*2.54));
-    const convertedWight = (logWeight/2.205);
-    const calculateBmi = new BMICalculator({height:convertedHeight, weight: convertedWight});
+    const convertedHeight = logHeightFt * 30.48 + logHeightIn * 2.54;
+    const convertedWight = logWeight / 2.205;
+    const calculateBmi = new BMICalculator({
+      height: convertedHeight,
+      weight: convertedWight,
+    });
     const results = calculateBmi.results();
 
     addToDatabase(logWeight, logHeightFt, logHeightIn, results.bmi);
     updateLog(logWeight, logHeightFt, logHeightIn);
-    
   };
 
   return (
@@ -35,7 +37,7 @@ function WeighIn({ updateLog }) {
           <Form.Label>In</Form.Label>
           <Form.Control type="number" placeholder="Enter height" />
         </Form.Group>
-        
+
         <Button variant="primary" type="submit">
           Submit
         </Button>
@@ -50,8 +52,8 @@ function WeighIn({ updateLog }) {
 // })
 
 const mapDispatchToProps = (dispatch) => ({
-  updateLog: (logWeight, logHeight) =>
-    dispatch(updateLog(logWeight, logHeight)),
+  updateLog: (logWeight, logHeightFt, logHeightIn) =>
+    dispatch(updateLog(logWeight, logHeightFt, logHeightIn)),
 });
 
 export default connect(null, mapDispatchToProps)(WeighIn);
