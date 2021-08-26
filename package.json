@@ -4,7 +4,7 @@
   "description": "A way to track different types of weight-loss goals/ competitions",
   "main": "index.js",
   "scripts": {
-    "build": "cd react-ui/ && npm install && npm run build",
+    "build": "cd react-dashboard/ && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "start": "node server.js"
