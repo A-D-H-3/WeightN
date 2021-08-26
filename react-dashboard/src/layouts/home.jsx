@@ -1,19 +1,17 @@
 import { Login } from "../services/login";
+import "./home.css";
 
 function Home() {
   return (
-    <div>
-      <h1 className="home-title">WeightN</h1>
+    <div className="home-body">
+      <h1 className="home-title">Welcome to WeightN!</h1>
       <div className="signup">
         <p>
-          Peter Griffin: Oh, okay, here's another riddle. A woman has two
-          children. Now, a homicidal maniac tells her she can only keep one.
-          Which one does she let 'im kill? Brian Griffin: That's, that's not a
-          riddle. That's, that's just terrible. Peter Griffin: Wrong! It's the
-          ugly one.
+          WeightN is designed to help you and your friends participate, organize
+          and track weight-loss and fitness competitions.
         </p>
         <fieldset className="signup-field">
-          <legend> Sign-Up</legend>
+          {/* <legend> Sign-Up</legend> */}
           <Login />
         </fieldset>
       </div>

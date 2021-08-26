@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.home-body {
+  background-image: url(../assets/img/sidebar-4.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-size: cover;
+  display: block;
+  height: 100vh;
+  padding: 10px;
+  /* margin: 0 auto; */
+}
+
+.home-title {
+  margin: 10px auto 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.signup {
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.sign-in {
+  display: inline-flex;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: rgba(255, 165, 0, 0.75);
+  margin: 20px;
+}
+
+.sign-in:hover {
+  background: coral;
+}
+
+.sign-in:active {
+  background: rgb(182, 83, 47);
+}
+
+.sign-in__text {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 1.25rem;
+}
+/* .sign-in__icon {
+  align-items: flex-end;
+  padding: 0 24px;
+  height: 100%;
+} */
+
+.sign-in-google,
+.sign-in-github {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  margin: auto;
+
+  /* background: rgba(0, 0, 0, 0.08); */
+}
+
+.sign-in-github img {
+  height: 100%;
+  width: 40px;
+}
+
+.sign-in-google img {
+  height: 100%;
+  width: 40px;
+}
+
+/* .sign-in__icon img {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  background: rgba(0, 0, 0, 0.08);
+} */

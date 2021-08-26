@@ -2,6 +2,8 @@ import firebase from "firebase/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Redirect, Switch } from "react-router-dom";
 import "firebase/auth";
+import GOOGLE from "../assets/img/google-icon-removebg-preview.png";
+import GITHUB from "assets/img/github-icon-removebg-preview.png";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDvvPU7jmEKas1pQamUG9sldi2edlf8Ynw",
@@ -21,11 +23,19 @@ function Login() {
   return (
     <div>
       <header>
-        <h1>⚛️🔥💬</h1>
+        {/* <h1>⚛️🔥💬</h1> */}
         <SignOut />
       </header>
 
-      <section>{user ? <Switch><Redirect to="/admin/dashboard" /></Switch>: <SignIn />}</section>
+      <section>
+        {user ? (
+          <Switch>
+            <Redirect to="/admin/dashboard" />
+          </Switch>
+        ) : (
+          <SignIn />
+        )}
+      </section>
     </div>
   );
 }
@@ -43,10 +53,16 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>
-        Sign in with Google
+        <span className="sign-in__text">Sign in with </span>
+        <span className="sign-in-google">
+          <img src={GOOGLE} />
+        </span>
       </button>
       <button className="sign-in" onClick={signInWithGithub}>
-        Sign in with Github
+        <span className="sign-in__text">Sign in with </span>
+        <span className="sign-in-github">
+          <img src={GITHUB} />
+        </span>
       </button>
     </>
   );
@@ -60,10 +76,18 @@ function SignOut() {
         <button className="sign-out" onClick={() => auth.signOut()}>
           Log out
         </button>
-        {/* <section>{user ? <p>you are logged in</p>: <Switch><Redirect to="/home" /></Switch>}</section> */}
+        <section>
+          {user ? (
+            <p>you are logged in</p>
+          ) : (
+            <Switch>
+              <Redirect to="/home" />
+            </Switch>
+          )}
+        </section>
       </>
     )
   );
 }
 
-export {Login, SignIn, SignOut};
+export { Login, SignIn, SignOut };
