@@ -4,6 +4,7 @@ const initialState = {
   logWeight: 0,
   logHeightFt: 0,
   logHeightIn: 0,
+  bmi: 0,
   weighNflag: null,
 };
 
@@ -13,6 +14,7 @@ export default function updateLogReducer(state = initialState, action) {
       logWeight: action.payload.logWeight,
       logHeightFt: action.payload.logHeightFt,
       logHeightIn: action.payload.logHeightIn,
+      bmi: action.payload.bmi,
       weighNflag: false,
     };
   }

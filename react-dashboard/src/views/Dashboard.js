@@ -1,8 +1,9 @@
 import React from "react";
 import ChartistGraph from "react-chartist";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { updateFlag } from "../redux/actions";
+import pullData from "../services/database-pull";
 // react-bootstrap components
 import {
   Badge,
@@ -20,10 +21,13 @@ import {
 } from "react-bootstrap";
 
 function Dashboard() {
+  const currentLog = useSelector((state) => state.updateLog);
+  // const graphLog = useSelector((state) => state.history);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(updateFlag());
+    pullData();
   }, []);
   return (
     <>
@@ -41,7 +45,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Current BMI</p>
-                      <Card.Title as="h4">.23</Card.Title>
+                      <Card.Title as="h4">{currentLog.bmi}</Card.Title>
                     </div>
                   </Col>
                 </Row>

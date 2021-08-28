@@ -7,7 +7,7 @@ const { PORT } = process.env;
 const app = express();
 
 // Serving up the static build file for React
-// app.use(express.static(path.resolve(__dirname + "/react-ui/build")));
+app.use(express.static(path.resolve(__dirname + "/react-dashboard/build")));
 
 app.get("/heartbeat", (req, res) => {
   res.send("Hello!! I am heartbeat channel!");

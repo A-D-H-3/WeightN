@@ -25,7 +25,7 @@ function WeighIn({ updateLog }) {
     const results = calculateBmi.results();
 
     addToDatabase(logWeight, logHeightFt, logHeightIn, results.bmi);
-    updateLog(logWeight, logHeightFt, logHeightIn);
+    updateLog(logWeight, logHeightFt, logHeightIn, results.bmi);
   };
 
   return (
@@ -56,8 +56,8 @@ function WeighIn({ updateLog }) {
 // })
 
 const mapDispatchToProps = (dispatch) => ({
-  updateLog: (logWeight, logHeightFt, logHeightIn) =>
-    dispatch(updateLog(logWeight, logHeightFt, logHeightIn)),
+  updateLog: (logWeight, logHeightFt, logHeightIn, bmi) =>
+    dispatch(updateLog(logWeight, logHeightFt, logHeightIn, bmi)),
 });
 
 export default connect(null, mapDispatchToProps)(WeighIn);
