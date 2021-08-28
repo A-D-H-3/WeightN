@@ -26,14 +26,16 @@ class Footer extends Component {
           <nav>
             <ul className="footer-menu">
               <li>
-                <a href="https://github.com/A-D-H-3/WeightN" onClick={(e) => e.preventDefault()}>
-                  Github
+                <a
+                  href="https://github.com/A-D-H-3/WeightN"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  Visit us on Github
                 </a>
               </li>
             </ul>
             <p className="copyright text-center">
-              © {new Date().getFullYear()}{" "}
-              <a href="#">WeighN</a>, Challenge
+              © {new Date().getFullYear()} <a href="#">WeightN</a>, Challenge
               Your Self
             </p>
           </nav>

@@ -3,8 +3,7 @@ import firebase from "firebase/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Redirect, Switch } from "react-router-dom";
 import "firebase/auth";
-import "firebase/firestore";
-import GOOGLE from "../assets/img/google-icon-removebg-preview.png";
+import GOOGLE from "../assets/img/google-icon-removebg-preview-300x300.png";
 import GITHUB from "assets/img/github-icon-removebg-preview.png";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -57,13 +56,13 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>
-        <span className="sign-in__text">Sign in with </span>
+        <span className="sign-in__text">Sign in with: </span>
         <span className="sign-in-google">
           <img src={GOOGLE} />
         </span>
       </button>
       <button className="sign-in" onClick={signInWithGithub}>
-        <span className="sign-in__text">Sign in with </span>
+        <span className="sign-in__text">Sign in with: </span>
         <span className="sign-in-github">
           <img src={GITHUB} />
         </span>
@@ -93,7 +92,6 @@ function SignOut() {
     )
   );
 }
-
 
 /* ***************Chat Components***************** */
 
