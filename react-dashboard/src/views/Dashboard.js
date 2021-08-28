@@ -3,7 +3,7 @@ import ChartistGraph from "react-chartist";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { updateFlag } from "../redux/actions";
-import pullData from "../services/database-pull";
+// import PullData from "../services/database-pull";
 // react-bootstrap components
 import {
   Badge,
@@ -27,7 +27,6 @@ function Dashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(updateFlag());
-    pullData();
   }, []);
   return (
     <>
@@ -71,7 +70,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Calories</p>
-                      <Card.Title as="h4">Comming Soon</Card.Title>
+                      <Card.Title as="h4">Coming Soon</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -97,7 +96,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Avg Sleep</p>
-                      <Card.Title as="h4">4 Hrs</Card.Title>
+                      <Card.Title as="h4">Coming Soon</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -122,7 +121,7 @@ function Dashboard() {
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Annual Step Counter</p>
+                      <p className="card-category">Lifetime Step Counter</p>
                       <Card.Title as="h4">10,031,630</Card.Title>
                     </div>
                   </Col>
@@ -147,6 +146,7 @@ function Dashboard() {
               </Card.Header>
               <Card.Body>
                 <div className="ct-chart" id="chartHours">
+                  {/* <PullData /> */}
                   <ChartistGraph
                     data={{
                       labels: [
@@ -159,9 +159,7 @@ function Dashboard() {
                         "3:00AM",
                         "6:00AM",
                       ],
-                      series: [
-                        [287, 385, 490, 492, 554, 586, 698, 695],
-                      ],
+                      series: [[287, 385, 490, 492, 554, 586, 698, 695]],
                     }}
                     type="Line"
                     options={{
@@ -198,7 +196,8 @@ function Dashboard() {
               <Card.Footer>
                 <div className="legend">
                   <i className="fas fa-circle text-info"></i>
-                   username {/*<i className="fas fa-circle text-danger"></i>
+                  username{" "}
+                  {/*<i className="fas fa-circle text-danger"></i>
                   Click <i className="fas fa-circle text-warning"></i>
                   Click Second Time */}
                 </div>
