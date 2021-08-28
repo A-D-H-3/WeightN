@@ -3,9 +3,10 @@ import firebase from "firebase/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Redirect, Switch } from "react-router-dom";
 import "firebase/auth";
+import "firebase/firestore";
 import GOOGLE from "../assets/img/google-icon-removebg-preview-300x300.png";
 import GITHUB from "assets/img/github-icon-removebg-preview.png";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useCollectionData, useCollection } from "react-firebase-hooks/firestore";
 
 firebase.initializeApp({
   apiKey: "AIzaSyCYJGI1gJ9Nrl5gdJBgiPU0IGfUuS-OsQc",
@@ -20,6 +21,8 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+
+/* ************************* Auth Components ********************** */
 function Login() {
   const [user] = useAuthState(auth);
 
@@ -81,7 +84,7 @@ function SignOut() {
         </button>
         <section>
           {user ? (
-            <p>you are logged in</p>
+            <p>logging you out...</p>
           ) : (
             <Switch>
               <Redirect to="/home" />
@@ -93,7 +96,7 @@ function SignOut() {
   );
 }
 
-/* ***************Chat Components***************** */
+/* ************************* Chat Components ********************** */
 
 function ChatRoom() {
   const dummy = useRef();
@@ -162,5 +165,96 @@ function ChatMessage(props) {
     </>
   );
 }
+
+/* ************************* Database Components ********************** */
+
+// function PullData(){
+//   // const weightFormRef = firebase.firestore().collection('weightForm');
+//   // const weightFormRef = db.collection("weightForm");
+
+//   // const query = weightFormRef.where("uid",'==',auth.uid).orderBy("createdAt").limit(6);
+//   // const [userData] = useCollectionData(query, { idField: "id" });
+
+//   // console.log(userData);
+//   // updateGraphLog(userData);
+//   const [user] = useAuthState(auth);
+
+//   const [value, loading, error] = useCollection(
+//     firestore.collection('weightForm').where("uid","==",),
+//     {
+//       snapshotListenOptions: { includeMetadataChanges: true },
+//     }
+//   );
+  
+
+//   return(
+//     <>
+//       <p>
+//         {error && <strong>Error: {JSON.stringify(error)}</strong>}
+//         {loading && <span>Collection: Loading...</span>}
+//         {value && (
+//           <span>
+//             Collection:{' '}
+//             {value.docs.map((doc) => (
+//               <React.Fragment key={doc.id}>
+//                 {JSON.stringify(doc.data())},{' '}
+//               </React.Fragment>
+//             ))}
+//           </span>
+//         )}
+//       </p>
+//       {/* {querySnapshot && 
+//       querySnapshot.map((msg)=>{
+//         <ChartistGraph
+//         data={{
+//           labels: [
+//             "9:00AM",
+//             "12:00AM",
+//             "3:00PM",
+//             "6:00PM",
+//             "9:00PM",
+//             "12:00PM",
+//             "3:00AM",
+//             "6:00AM",
+//           ],
+//           series: [
+//             [287, 385, 490, 492, 554, 586, 698, 695],
+//           ],
+//         }}
+//         type="Line"
+//         options={{
+//           low: 0,
+//           high: 800,
+//           showArea: false,
+//           height: "245px",
+//           axisX: {
+//             showGrid: false,
+//           },
+//           lineSmooth: true,
+//           showLine: true,
+//           showPoint: true,
+//           fullWidth: true,
+//           chartPadding: {
+//             right: 50,
+//           },
+//         }}
+//         responsiveOptions={[
+//           [
+//             "screen and (max-width: 640px)",
+//             {
+//               axisX: {
+//                 labelInterpolationFnc: function (value) {
+//                   return value[0];
+//                 },
+//               },
+//             },
+//           ],
+//         ]}
+//       />
+//       })} */}
+//     </>
+//   )
+// };
+
 
 export { Login, SignIn, SignOut, ChatRoom };
