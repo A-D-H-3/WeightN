@@ -10,3 +10,14 @@
   align-content: center;
   margin: center;
 }
+.averyphotosizing {
+  margin: center;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 150px;
+  height: 200px;
+  position: relative;
+}
+.header {
+  font-style: black;
+}
