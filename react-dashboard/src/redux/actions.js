@@ -27,11 +27,13 @@ export const updateFlag = () => {
   return { type: RESET_FLAG };
 };
 
-export const updateGraphLog = (userData) => {
+export const updateGraphLog = (userData,x,y) => {
   return {
     type: UPDATE_GRAPH_LOG,
     payload: {
       userData,
+      x,
+      y,
     },
   };
 };

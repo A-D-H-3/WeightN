@@ -21,8 +21,9 @@ import {
 } from "react-bootstrap";
 
 function Dashboard() {
+  // PullData();
   const currentLog = useSelector((state) => state.updateLog);
-  // const graphLog = useSelector((state) => state.history);
+  const graphLog = useSelector((state) => state.graphLog);
 
   const dispatch = useDispatch();
   useEffect(() => {
