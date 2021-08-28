@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import AdminLayout from "../layouts/Admin.js";
 import Home from '../layouts/home';
-import {SignOut} from '../services/login'
+import {SignOut} from '../services/firebase'
 
 const auth = firebase.auth();
 

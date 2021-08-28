@@ -3,7 +3,7 @@ import ChartistGraph from "react-chartist";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { updateFlag } from "../redux/actions";
-// import PullData from "../services/database-pull";
+// import { PullData } from "../services/firebase";
 // react-bootstrap components
 import {
   Badge,
