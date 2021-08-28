@@ -17,7 +17,7 @@ export default function pullData(){
   const [userData] = useCollectionData(query, { idField: "id" });
 
   console.log(userData);
-  updateGraphLog(userData);
+  // updateGraphLog(userData);
  
   
 
