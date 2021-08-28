@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Redirect, Switch } from "react-router-dom";
 import "firebase/auth";
-import GOOGLE from "../assets/img/google-icon-removebg-preview.png";
+import GOOGLE from "../assets/img/google-icon-removebg-preview-300x300.png";
 import GITHUB from "assets/img/github-icon-removebg-preview.png";
 
 firebase.initializeApp({
