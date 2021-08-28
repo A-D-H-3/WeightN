@@ -56,13 +56,13 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>
-        <span className="sign-in__text">Sign in with </span>
+        <span className="sign-in__text">Sign in with: </span>
         <span className="sign-in-google">
           <img src={GOOGLE} />
         </span>
       </button>
       <button className="sign-in" onClick={signInWithGithub}>
-        <span className="sign-in__text">Sign in with </span>
+        <span className="sign-in__text">Sign in with: </span>
         <span className="sign-in-github">
           <img src={GITHUB} />
         </span>
