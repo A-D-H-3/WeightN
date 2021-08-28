@@ -1,9 +1,10 @@
-import { Login } from "../services/login";
+import { Login } from "../services/firebase";
 import "./home.css";
+import background from "../assets/img/sidebar-4.jpg";
 
 function Home() {
   return (
-    <div className="home-img">
+    <div style={{ backgroundImage: `url(${background})` }} className="home-img">
       <h1 className="home-title">Welcome to WeightN!</h1>
       <div className="signup">
         <p>
