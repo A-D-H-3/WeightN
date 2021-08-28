@@ -7,7 +7,7 @@ let unsubscribe;
 
 export default function addToDatabase(newWeight, newHeightFt, newHeightIn, newBmi){
   console.log("i entered the add to database function");
-  const formRef = firebase.firestore().collection('form2');
+  const formRef = firebase.firestore().collection('weightForm');
   const auth = firebase.auth().currentUser;
 
   
