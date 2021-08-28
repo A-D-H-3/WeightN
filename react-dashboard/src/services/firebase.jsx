@@ -7,6 +7,8 @@ import "firebase/firestore";
 import GOOGLE from "../assets/img/google-icon-removebg-preview-300x300.png";
 import GITHUB from "assets/img/github-icon-removebg-preview.png";
 import { useCollectionData, useCollection } from "react-firebase-hooks/firestore";
+import moment from "moment";
+import ChartistGraph from "react-chartist";
 
 firebase.initializeApp({
   apiKey: "AIzaSyCYJGI1gJ9Nrl5gdJBgiPU0IGfUuS-OsQc",
@@ -168,93 +170,72 @@ function ChatMessage(props) {
 
 /* ************************* Database Components ********************** */
 
-// function PullData(){
-//   // const weightFormRef = firebase.firestore().collection('weightForm');
-//   // const weightFormRef = db.collection("weightForm");
+function PullData(){
+  const [user] = useAuthState(auth);
+  const [value, loading, error] = useCollection(
+    firestore.collection('weightForm').where("uid","==",user.uid).orderBy("createdAt").limit(6),
+    {
+      snapshotListenOptions: { includeMetadataChanges: false },
+    }
+  );
+  const x = [];
+  const y = [];
 
-//   // const query = weightFormRef.where("uid",'==',auth.uid).orderBy("createdAt").limit(6);
-//   // const [userData] = useCollectionData(query, { idField: "id" });
-
-//   // console.log(userData);
-//   // updateGraphLog(userData);
-//   const [user] = useAuthState(auth);
-
-//   const [value, loading, error] = useCollection(
-//     firestore.collection('weightForm').where("uid","==",),
-//     {
-//       snapshotListenOptions: { includeMetadataChanges: true },
-//     }
-//   );
-  
-
-//   return(
-//     <>
-//       <p>
-//         {error && <strong>Error: {JSON.stringify(error)}</strong>}
-//         {loading && <span>Collection: Loading...</span>}
-//         {value && (
-//           <span>
-//             Collection:{' '}
-//             {value.docs.map((doc) => (
-//               <React.Fragment key={doc.id}>
-//                 {JSON.stringify(doc.data())},{' '}
-//               </React.Fragment>
-//             ))}
-//           </span>
-//         )}
-//       </p>
-//       {/* {querySnapshot && 
-//       querySnapshot.map((msg)=>{
-//         <ChartistGraph
-//         data={{
-//           labels: [
-//             "9:00AM",
-//             "12:00AM",
-//             "3:00PM",
-//             "6:00PM",
-//             "9:00PM",
-//             "12:00PM",
-//             "3:00AM",
-//             "6:00AM",
-//           ],
-//           series: [
-//             [287, 385, 490, 492, 554, 586, 698, 695],
-//           ],
-//         }}
-//         type="Line"
-//         options={{
-//           low: 0,
-//           high: 800,
-//           showArea: false,
-//           height: "245px",
-//           axisX: {
-//             showGrid: false,
-//           },
-//           lineSmooth: true,
-//           showLine: true,
-//           showPoint: true,
-//           fullWidth: true,
-//           chartPadding: {
-//             right: 50,
-//           },
-//         }}
-//         responsiveOptions={[
-//           [
-//             "screen and (max-width: 640px)",
-//             {
-//               axisX: {
-//                 labelInterpolationFnc: function (value) {
-//                   return value[0];
-//                 },
-//               },
-//             },
-//           ],
-//         ]}
-//       />
-//       })} */}
-//     </>
-//   )
-// };
+  return(
+    <>
+      <div>
+        {error && <strong>Error: {JSON.stringify(error)}</strong>}
+        {loading && <span>Collection: Loading...</span>}
+        {value && (
+          <>
+          {value.docs.map((doc) => (
+            <React.Fragment key={doc.id}>
+              {x.push(moment.unix(doc.data().createdAt.seconds).format("ddd, MMM Do, h:mm"))},
+              {y.push(doc.data().Weight)}
+            </React.Fragment>
+          ))},
+          <ChartistGraph
+            data={{
+              labels: x,
+              series: [
+                y,
+              ],
+            }}
+            type="Line"
+            options={{
+              showArea: false,
+              height: "245px",
+              axisX: {
+                showGrid: false,
+              },
+              lineSmooth: true,
+              showLine: true,
+              showPoint: true,
+              fullWidth: true,
+              chartPadding: {
+                right: 50,
+              },
+            }}
+            responsiveOptions={[
+              [
+                "screen and (max-width: 640px)",
+                {
+                  axisX: {
+                    labelInterpolationFnc: function (value) {
+                      return value[0];
+                    },
+                  },
+                },
+              ],
+            ]}
+          />
+        </>
+        )}
+      </div>
+      
+    </>
+  )
+};
 
 
-export { Login, SignIn, SignOut, ChatRoom };
+export { Login, SignIn, SignOut, ChatRoom, PullData };
