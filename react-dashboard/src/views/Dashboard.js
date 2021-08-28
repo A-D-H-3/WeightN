@@ -3,7 +3,7 @@ import ChartistGraph from "react-chartist";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { updateFlag } from "../redux/actions";
-import pullData from "../services/database-pull";
+// import PullData from "../services/database-pull";
 // react-bootstrap components
 import {
   Badge,
@@ -27,7 +27,6 @@ function Dashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(updateFlag());
-    pullData();
   }, []);
   return (
     <>
@@ -147,6 +146,7 @@ function Dashboard() {
               </Card.Header>
               <Card.Body>
                 <div className="ct-chart" id="chartHours">
+                  {/* <PullData /> */}
                   <ChartistGraph
                     data={{
                       labels: [
