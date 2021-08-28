@@ -5,12 +5,12 @@ import Luqmaan from "../assets/img/Luqmaan.jpeg";
 import Teila from "../assets/img/Teila.jpg";
 
 // react-bootstrap components
-import { Image, Col, Card, Container, Row } from "react-bootstrap";
+import { Image, Button, Col, Card, Container, Row } from "react-bootstrap";
 
 function AboutUs() {
   return (
     <>
-      <h1 classname="header">The Developers Room</h1>
+      <h1> The Developers Room </h1>
       <Container className="about-container">
         <Row>
           <Col xs={1} md={1} lg={1} className="img-vert">
@@ -18,11 +18,11 @@ function AboutUs() {
           </Col>
         </Row>
         <Card
-          bg="Light"
+          bg="light"
           style={{ width: "18rem" }}
           className="mb-2 text-center"
         >
-          <Card.Header>About Me</Card.Header>
+          <Card.Header></Card.Header>
           <Card.Body>
             <Card.Title> Luqmaan Bradford </Card.Title>
             <Card.Text>
@@ -48,15 +48,10 @@ function AboutUs() {
           style={{ width: "18rem" }}
           className="mb-2 text-center"
         >
-          <Card.Header>About Me</Card.Header>
+          <Card.Header></Card.Header>
           <Card.Body>
             <Card.Title> Teila Garraway </Card.Title>
-            <Card.Text>
-              Full Stack Developer{" "}
-              <b>
-                <i>|| </i>{" "}
-              </b>
-            </Card.Text>
+            <Card.Text>Full Stack Developer </Card.Text>
           </Card.Body>
         </Card>
         <Row>
@@ -65,11 +60,11 @@ function AboutUs() {
           </Col>
         </Row>
         <Card
-          bg="Light"
+          bg="light"
           style={{ width: "18rem" }}
           className="mb-2 text-center"
         >
-          <Card.Header>About Me</Card.Header>
+          <Card.Header></Card.Header>
           <Card.Body>
             <Card.Title> Avery </Card.Title>
             <Card.Text>Full Stack Developer </Card.Text>
