@@ -1,30 +1,49 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useCollection } from "react-firebase-hooks/firestore";
 import { updateGraphLog } from "../redux/actions";
 
 
-// const db = firebase.firestore();
+const db = firebase.firestore();
 
 // const firestore = firebase.firestore();
 
 export default function pullData(){
-  const weightFormRef = firebase.firestore().collection('weightForm');
+  // const weightFormRef = firebase.firestore().collection('weightForm');
   const auth = firebase.auth().currentUser;
   // const weightFormRef = db.collection("weightForm");
 
-  const query = weightFormRef.where("uid",'==',auth.uid).orderBy("createdAt").limit(6);
-  const [userData] = useCollectionData(query, { idField: "id" });
+  // const query = weightFormRef.where("uid",'==',auth.uid).orderBy("createdAt").limit(6);
+  // const [userData] = useCollectionData(query, { idField: "id" });
 
-  console.log(userData);
+  // console.log(userData);
   // updateGraphLog(userData);
- 
+
+  const [value, loading, error] = useCollection(
+    firebase.firestore().collection('weightForm'),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true },
+    }
+  );
   
 
   return(
     <>
-      {userData && 
-      userData.map((msg)=>{
+      <p>
+        {error && <strong>Error: {JSON.stringify(error)}</strong>}
+        {loading && <span>Collection: Loading...</span>}
+        {value && (
+          <span>
+            Collection:{' '}
+            {value.docs.map((doc) => (
+              <React.Fragment key={doc.id}>
+                {JSON.stringify(doc.data())},{' '}
+              </React.Fragment>
+            ))}
+          </span>
+        )}
+      </p>
+      {/* {querySnapshot && 
+      querySnapshot.map((msg)=>{
         <ChartistGraph
         data={{
           labels: [
@@ -71,7 +90,7 @@ export default function pullData(){
           ],
         ]}
       />
-      })}
+      })} */}
     </>
   )
 };

@@ -15,7 +15,7 @@ import {
   Col,
 } from "react-bootstrap";
 
-import {ChatRoom} from "../services/login";
+import {ChatRoom} from "../services/firebase";
 
 function ChatBox() {
   
