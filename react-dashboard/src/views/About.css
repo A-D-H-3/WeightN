@@ -1,0 +1,12 @@
+.photosizing {
+  margin: center;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.img-vert {
+  align-content: center;
+  margin: center;
+}
