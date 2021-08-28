@@ -2,5 +2,6 @@
 import { combineReducers } from "redux";
 import username from "./username";
 import updateLog from "./updateLog";
+import graphLog from "./graphLog";
 
-export default combineReducers({ username, updateLog });
+export default combineReducers({ username, updateLog, graphLog });
