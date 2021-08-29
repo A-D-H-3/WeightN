@@ -13,6 +13,10 @@ app.get("/heartbeat", (req, res) => {
   res.send("Hello!! I am heartbeat channel!");
 });
 
+app.get('*', function(req, res, next) {
+  res.sendFile(__dirname + '/react-dashboard/build');
+ });
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
