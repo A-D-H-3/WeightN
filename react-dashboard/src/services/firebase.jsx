@@ -6,7 +6,10 @@ import "firebase/auth";
 import "firebase/firestore";
 import GOOGLE from "../assets/img/google-icon-removebg-preview-300x300.png";
 import GITHUB from "assets/img/github-icon-removebg-preview.png";
-import { useCollectionData, useCollection } from "react-firebase-hooks/firestore";
+import {
+  useCollectionData,
+  useCollection,
+} from "react-firebase-hooks/firestore";
 
 firebase.initializeApp({
   apiKey: "AIzaSyCYJGI1gJ9Nrl5gdJBgiPU0IGfUuS-OsQc",
@@ -20,7 +23,6 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-
 
 /* ************************* Auth Components ********************** */
 function Login() {
@@ -132,14 +134,14 @@ function ChatRoom() {
         <span ref={dummy}></span>
       </main>
 
-      <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage} className="chat-form">
         <input
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
-          placeholder="say something nice"
+          placeholder="message"
         />
 
-        <button type="submit" disabled={!formValue}>
+        <button type="submit" disabled={!formValue} className="chat-button">
           🕊️
         </button>
       </form>
@@ -159,8 +161,9 @@ function ChatMessage(props) {
           src={
             photoURL || "https://api.adorable.io/avatars/23/abott@adorable.png"
           }
+          className="chat-img"
         />
-        <p>{text}</p>
+        <p className="chat-text">{text}</p>
       </div>
     </>
   );
@@ -185,7 +188,6 @@ function ChatMessage(props) {
 //       snapshotListenOptions: { includeMetadataChanges: true },
 //     }
 //   );
-  
 
 //   return(
 //     <>
@@ -203,7 +205,7 @@ function ChatMessage(props) {
 //           </span>
 //         )}
 //       </p>
-//       {/* {querySnapshot && 
+//       {/* {querySnapshot &&
 //       querySnapshot.map((msg)=>{
 //         <ChartistGraph
 //         data={{
@@ -255,6 +257,5 @@ function ChatMessage(props) {
 //     </>
 //   )
 // };
-
 
 export { Login, SignIn, SignOut, ChatRoom };
