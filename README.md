@@ -1,6 +1,6 @@
 # WeightN
 
-# [WeightN](Deployed Link)
+# [https://weightn.herokuapp.com/home]
 
 A way to track weight-loss competitions amougnst friends
 
@@ -28,6 +28,6 @@ A way to track weight-loss competitions amougnst friends
 
 ## Developed by:
 
-- [Avery]
-- [Luqmaan]
+- [Avery] https://github.com/A-D-H-3
+- [Luqmaan]https://www.linkedin.com/in/luqmaan-bradford-0b4525137
 - [Teila](https://www.linkedin.com/in/Teila-Garraway/)
