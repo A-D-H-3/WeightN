@@ -3,15 +3,15 @@ import "./home.css";
 import background from "../assets/img/sidebar-4.jpg";
 
 function Home(props) {
-  useEffect(() => {
-    // set css properties
-    const backgroundImg = props.body;
+  // useEffect(() => {
+  //   // set css properties
+  //   const backgroundImg = props.body;
 
-    // return function to clean up css properties
-    return () => {
-      backgroundImg;
-    };
-  }, []);
+  //   // return function to clean up css properties
+  //   return () => {
+  //     backgroundImg;
+  //   };
+  // }, []);
   return (
     <div style={{ backgroundImage: `url(${background})` }} className="home-img">
       <h1 className="home-title">Welcome to WeightN!</h1>

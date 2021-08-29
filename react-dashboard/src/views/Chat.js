@@ -15,17 +15,18 @@ import {
   Col,
 } from "react-bootstrap";
 
-import {ChatRoom} from "../services/firebase";
+import "./chat.css";
+
+import { ChatRoom } from "../services/firebase";
 
 function ChatBox() {
-  
   return (
     <>
       <div className="rna-container">
         {/* <NotificationAlert ref={notificationAlertRef} /> */}
       </div>
       <Container fluid>
-        <Card>
+        <Card className="chat-card">
           <ChatRoom />
         </Card>
       </Container>
