@@ -1,5 +1,4 @@
-import { Login } from "../services/login";
-import { useEffect } from "react";
+import { Login } from "../services/firebase";
 import "./home.css";
 import background from "../assets/img/sidebar-4.jpg";
 

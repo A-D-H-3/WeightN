@@ -19,6 +19,9 @@ import React, { Component } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import routes from "routes.js";
+import firebase from "firebase/app";
+
+const auth = firebase.auth();
 
 function Header() {
   const location = useLocation();
@@ -72,10 +75,11 @@ function Header() {
           <Nav className="ml-auto" navbar>
             <Nav.Item>
               <Nav.Link
-                as='span'
                 className="m-0"
+                href="/"
+                onClick={() => auth.signOut()}
               >
-              <NavLink to="/signout">Sign out</NavLink>
+                <span className="no-icon">Sign out</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>

@@ -6,7 +6,17 @@
   height: 200px;
   position: relative;
 }
-.img-vert {
-  align-content: center;
+.averyphotosizing {
   margin: center;
+  border-radius: 75%;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+.header {
+  font-style: black;
+  margin: center;
+  padding-left: 100%;
+  align-content: center;
 }
