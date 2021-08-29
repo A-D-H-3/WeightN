@@ -14,7 +14,7 @@ app.get("/heartbeat", (req, res) => {
 });
 
 app.get('*', function(req, res, next) {
-  res.sendFile(__dirname + '/react-dashboard/build/');
+  res.sendFile(__dirname + '/react-dashboard/build');
  });
 
 app.listen(PORT, () => {
